@@ -1,0 +1,12 @@
+<ul >
+    <li class="menu" *ngFor="let item of menuItems">
+        <a class="inline-icon" (click)="showHideChildNodes(item);">
+            <span *ngIf="item.children && !item.show" class="material-symbols-outlined"> arrow_right </span>
+            <span *ngIf="item.children && item.show" class="material-symbols-outlined"> arrow_drop_down </span>
+            <span> {{item.label}}</span>
+        </a>
+        <ng-container *ngIf="item.children && item.show">
+            <app-child-node [items]="item.children" (content)="showAlertManagerContent($event)"> </app-child-node>
+        </ng-container>
+    </li>
+</ul>

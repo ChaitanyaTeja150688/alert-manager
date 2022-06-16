@@ -1,0 +1,10 @@
+<ul class="sub-menu">
+    <li *ngFor="let item of items">
+        <span *ngIf="item.children && !item.show" class="material-symbols-outlined"> arrow_right </span>
+        <span *ngIf="item.children && item.show" class="material-symbols-outlined"> arrow_drop_down </span>
+        <a (click)="showHideChildNodes(item);">{{item.label}}</a>
+        <ng-container *ngIf="item.children && item.show">
+            <app-child-node [items]="item.children"> </app-child-node>
+        </ng-container>
+    </li>
+</ul>

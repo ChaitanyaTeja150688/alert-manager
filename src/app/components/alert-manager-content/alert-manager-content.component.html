@@ -1,0 +1,10 @@
+<div *ngIf="menuList.children.length > 0">
+    <div *ngFor="let item of menuList?.children" style="padding: 10px;  border-bottom: 1px solid;">
+        <span style="font-weight: bolder">{{item.label}}</span>
+        <div *ngIf="item?.children?.length > 0">
+            <div *ngFor="let node of item?.children" style="padding: 10px; border: 1px solid;">
+                <span style="font-weight: bolder">{{node.label}}</span>
+            </div>
+        </div>
+    </div>
+</div>
